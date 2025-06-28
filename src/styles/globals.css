@@ -120,12 +120,20 @@
   body {
     @apply bg-background text-foreground;
     width: 100dvw;
-    height: 100dvh;
+    min-height: 100dvh;
   }
 }
 
 @layer utilities {
   .h-section-nav-offset {
     height: calc(100dvh - 16rem);
+  }
+
+  .scrollbar-hidden {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }
