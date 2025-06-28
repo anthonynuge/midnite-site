@@ -1,5 +1,6 @@
 import ResponsiveWrapper from '@/components/layout/ResponsiveWrapper'
 import HeroSection from '@/components/sections/home/HeroSection'
+import OurServicesSection from '@/components/sections/home/OurServicesSection'
 
 export default function HomePage() {
   return (
@@ -13,7 +14,7 @@ export default function HomePage() {
 
         <section>
           <ResponsiveWrapper className="flex items-center justify-center" fullHeight>
-            <h1>Hello</h1>
+            <OurServicesSection />
           </ResponsiveWrapper>
         </section>
       </main>
