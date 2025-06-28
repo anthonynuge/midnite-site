@@ -13,7 +13,7 @@ export default function ResponsiveWrapper({
 }: ResponsiveWrapperProps) {
   return (
     <div className={cn('w-full px-4 sm:px-6 lg:px-8', fullHeight && 'min-h-screen', className)}>
-      <div className="">{children}</div>
+      {children}
     </div>
   )
 }
