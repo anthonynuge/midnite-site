@@ -103,41 +103,39 @@ export default function OurServicesSection() {
 
   return (
     <>
-      <section className="w-full">
-        <div className="grid grid-cols-2 px-8">
-          {/* left side */}
-          <div className="sticky top-0 grid h-screen place-content-center">
-            <div className="flex flex-col gap-2">
-              <h3 className="text-4xl tracking-tight">Our Services</h3>
-              <p>Full-service marketing built to grow your brand</p>
-              <figure className="rounded-md">
-                <img
-                  src={servicesData[activeImageIndex].image}
-                  alt=""
-                  className="h-140 w-140 rounded-md object-cover align-bottom transition-all duration-300"
-                />
-              </figure>
-            </div>
-          </div>
-
-          {/* right side discriptions*/}
-          <div className="grid snap-y snap-mandatory">
-            {servicesData.map((service, index) => (
-              <div
-                key={index}
-                className="top-0 grid h-screen snap-center place-content-center space-y-2 px-4"
-                data-index={index}
-                ref={el => {
-                  sectionRefs.current[index] = el
-                }}
-              >
-                <h4 className="text-4xl font-medium">{service.title}</h4>
-                <p className="text-muted-foreground max-w-3/4">{service.description}</p>
-              </div>
-            ))}
+      <div className="grid grid-cols-2 px-8">
+        {/* left side */}
+        <div className="sticky top-0 grid h-screen place-content-center">
+          <div className="flex flex-col gap-2">
+            <h3 className="text-4xl tracking-tight">Our Services</h3>
+            <p>Full-service marketing built to grow your brand</p>
+            <figure className="rounded-md">
+              <img
+                src={servicesData[activeImageIndex].image}
+                alt=""
+                className="h-140 w-140 rounded-md object-cover align-bottom transition-all duration-300"
+              />
+            </figure>
           </div>
         </div>
-      </section>
+
+        {/* right side discriptions*/}
+        <div className="grid snap-y snap-mandatory">
+          {servicesData.map((service, index) => (
+            <div
+              key={index}
+              className="top-0 grid h-screen snap-center place-content-center space-y-2 px-4"
+              data-index={index}
+              ref={el => {
+                sectionRefs.current[index] = el
+              }}
+            >
+              <h4 className="text-4xl font-medium">{service.title}</h4>
+              <p className="text-muted-foreground max-w-3/4">{service.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </>
   )
 }
