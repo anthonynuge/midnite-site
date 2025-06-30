@@ -103,35 +103,42 @@ export default function OurServicesSection() {
 
   return (
     <>
-      <div className="grid grid-cols-2 px-8">
+      <div className="grid grid-cols-1 gap-4 px-0 md:grid-cols-2 md:px-8">
         {/* left side */}
-        <div className="sticky top-0 grid h-screen place-content-center">
+        <div className="top-0 grid place-content-start md:sticky md:h-screen md:place-content-center">
           <div className="flex flex-col gap-2">
-            <h3 className="text-4xl tracking-tight">Our Services</h3>
+            <h2 className="text-2xl font-bold tracking-tight md:text-4xl">Our Services</h2>
             <p>Full-service marketing built to grow your brand</p>
             <figure className="rounded-md">
               <img
                 src={servicesData[activeImageIndex].image}
                 alt=""
-                className="h-140 w-140 rounded-md object-cover align-bottom transition-all duration-300"
+                className="hidden h-140 w-140 rounded-md object-cover align-bottom transition-all duration-300 md:block"
               />
             </figure>
           </div>
         </div>
 
         {/* right side discriptions*/}
-        <div className="grid snap-y snap-mandatory">
+        <div className="grid snap-y snap-mandatory space-y-24 md:space-y-0">
           {servicesData.map((service, index) => (
             <div
               key={index}
-              className="top-0 grid h-screen snap-center place-content-center space-y-2 px-4"
+              className="top-0 grid h-auto snap-center place-content-center space-y-2 px-4 md:h-screen"
               data-index={index}
               ref={el => {
                 sectionRefs.current[index] = el
               }}
             >
-              <h4 className="text-4xl font-medium">{service.title}</h4>
-              <p className="text-muted-foreground max-w-3/4">{service.description}</p>
+              <div className="block md:hidden">
+                <img
+                  src={service.image}
+                  alt=""
+                  className="h-auto w-full rounded-md object-cover align-bottom transition-all duration-300"
+                />
+              </div>
+              <h4 className="text-lg font-medium md:text-4xl">{service.title}</h4>
+              <p className="text-muted-foreground max-w-full xl:max-w-3/4">{service.description}</p>
             </div>
           ))}
         </div>
