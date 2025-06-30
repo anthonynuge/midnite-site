@@ -4,10 +4,10 @@ import ImageAccordion from './ImageAccordion'
 
 export default function ProjectSection() {
   return (
-    <div className="grid grid-cols-1 place-items-center items-center gap-2 sm:grid-cols-2">
-      <div className="max-w-full space-y-4 md:max-w-3/4">
-        <h2 className="text-4xl font-bold">
-          We Don’t Just Work With You. <br />
+    <div className="grid grid-cols-1 place-items-center items-center gap-2 lg:grid-cols-2">
+      <div className="max-w-full space-y-2 md:max-w-3/4 md:space-y-4">
+        <h2 className="text-2xl font-bold md:text-4xl">
+          We Don&apos;t Just Work With You. <br className="hidden xl:block" />
           We Build With You.
         </h2>
         <p className="text-muted-foreground">
