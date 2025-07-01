@@ -3,41 +3,44 @@
 import { useState } from 'react'
 import LabelInput from './LabelInput'
 import { Button } from '../ui/button'
-import { Textarea } from '../ui/textarea'
 import LabelTextarea from './LabelTextArea'
-
-interface FormData {
-  firstName: string
-  lastName: string
-  email: string
-  bussiness: string
-  message?: string
-}
-
-const defaultFormData: FormData = {
-  firstName: '',
-  lastName: '',
-  email: '',
-  bussiness: '',
-  message: '',
-}
+import { ContactSchema, contactSchema } from '@/schemas/contactSchema'
 
 export default function ContactForm() {
-  const [formData, setFormData] = useState<FormData>(defaultFormData)
-
-  const [errors, setErrors] = useState({
+  const [formData, setFormData] = useState<ContactSchema>({
     firstName: '',
+    lastName: '',
+    business: '',
     email: '',
-    bussiness: '',
     message: '',
   })
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  // Use the keys of Contact schema as optional keys
+  const [errors, setErrors] = useState<Partial<Record<keyof ContactSchema, string>>>({})
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
+    // clear errors on change
+    setErrors(prev => ({ ...prev, [name]: '' }))
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    const results = contactSchema.safeParse(formData)
+
+    if (!results.success) {
+      const fieldErrors = results.error.flatten().fieldErrors as Partial<
+        Record<keyof ContactSchema, string>
+      >
+
+      setErrors(fieldErrors)
+
+      console.log(errors)
+      return
+    }
+
     console.log(formData)
   }
 
@@ -50,7 +53,6 @@ export default function ContactForm() {
         placeholder="John Doe"
         value={formData.firstName}
         onChange={handleChange}
-        required
         error={errors.firstName}
         className="h-12 rounded-lg"
       />
@@ -62,20 +64,18 @@ export default function ContactForm() {
         placeholder="Doe"
         value={formData.lastName}
         onChange={handleChange}
-        required
-        error={errors.firstName}
+        error={errors.lastName}
         className="h-12 rounded-lg"
       />
 
       <LabelInput
         type="text"
-        name="bussiness"
-        label="Bussiness"
+        name="business"
+        label="Business"
         placeholder=""
-        value={formData.firstName}
+        value={formData.business}
         onChange={handleChange}
-        required
-        error={errors.firstName}
+        error={errors.business}
         className="h-12 rounded-lg"
       />
 
@@ -86,7 +86,6 @@ export default function ContactForm() {
         placeholder="john@example.com"
         value={formData.email}
         onChange={handleChange}
-        required
         error={errors.email}
         className="h-12 rounded-lg"
       />
@@ -96,9 +95,8 @@ export default function ContactForm() {
         name="message"
         placeholder="Type your message..."
         value={formData.message}
-        onChange={e => setFormData({ ...formData, message: e.target.value })}
+        onChange={handleChange}
         rows={8}
-        required
         error={errors.message}
         className="h-30"
       />
