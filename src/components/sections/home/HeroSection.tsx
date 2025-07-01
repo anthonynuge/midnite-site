@@ -3,13 +3,13 @@ import Link from 'next/link'
 
 export default function HeroSection() {
   return (
-    <div className="mx-auto flex h-full flex-col items-center justify-center gap-12">
-      <h1 className="text-center text-6xl font-bold md:text-9xl">
+    <div className="mx-auto flex h-full flex-col items-center justify-center space-y-4">
+      <h1 className="text-center font-serif text-6xl font-bold md:text-9xl">
         MIDNITE
         <br />
         AGENCY
       </h1>
-      <h2 className="max-w-md text-center text-base font-bold md:text-3xl">
+      <h2 className="max-w-md text-center text-base font-bold md:text-2xl">
         Where Business Come to Grow. <br /> No one can miss you now.
       </h2>
 

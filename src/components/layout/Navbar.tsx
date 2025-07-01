@@ -12,7 +12,7 @@ import { Button } from '../ui/button'
 import { ChevronRight } from 'lucide-react'
 import Image from 'next/image'
 import HamburgerToggle from '../mobile/HamburgerToggle'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export const servicesMenuData = [
   {
@@ -59,24 +59,47 @@ export const servicesMenuData = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsScrolled(true)
+      } else {
+        setIsScrolled(false)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [isScrolled])
 
   return (
     <>
-      <header className="fixed top-0 right-0 left-0 z-50">
-        <div className="mx-auto flex h-16 w-full max-w-screen-xl items-center justify-between px-4">
+      <header className="fixed top-0 right-0 left-0 z-50 mt-4">
+        <div
+          className={`mx-auto flex h-16 w-full max-w-screen-2xl items-center justify-between rounded-full px-4 transition-all duration-500 ease-in-out ${
+            isScrolled
+              ? 'bg-slate-800/20 shadow-md backdrop-blur-md'
+              : 'bg-transparent backdrop-blur-none'
+          }`}
+        >
           {/* Left Navigation */}
           <NavigationMenu className="hidden md:flex">
             <NavigationMenuList className="flex w-full items-center justify-between gap-6">
               {/* About */}
               <NavigationMenuItem>
-                <NavigationMenuLink asChild className="text-xl font-semibold">
+                <NavigationMenuLink
+                  asChild
+                  className="rounded-full bg-transparent px-4 text-base font-semibold hover:bg-slate-800/80 lg:text-xl"
+                >
                   <Link href="/about">About</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
               {/* Services */}
               <NavigationMenuItem className="relative">
-                <NavigationMenuTrigger className="text-xl font-semibold">
+                <NavigationMenuTrigger className="text-base font-semibold lg:text-xl">
                   Services
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -99,7 +122,10 @@ export default function Navbar() {
 
               {/* Our Work */}
               <NavigationMenuItem>
-                <NavigationMenuLink asChild className="text-xl font-semibold">
+                <NavigationMenuLink
+                  asChild
+                  className="rounded-full bg-transparent px-4 py-2 text-base font-semibold hover:bg-slate-800/80 lg:text-xl"
+                >
                   <Link href="/our-work">Our Work</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -113,9 +139,15 @@ export default function Navbar() {
 
           {/* Right Navigation */}
           <div className="hidden items-center gap-4 md:flex">
-            <div className="text-xl font-semibold">Midnite Social Network</div>
-            <Button variant="secondary" asChild className="bg-background hover:bg-background/80">
-              <Link href="/contact" className="text-xl">
+            <Link href="/" className="text-base font-semibold lg:text-xl">
+              Midnite Social Network
+            </Link>
+            <Button
+              variant="secondary"
+              asChild
+              className="rounded-full bg-transparent hover:bg-slate-800/80"
+            >
+              <Link href="/contact" className="text-base font-semibold lg:text-xl">
                 Contact Us
               </Link>
             </Button>
