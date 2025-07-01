@@ -14,14 +14,14 @@ export default function HeroSection() {
       </h2>
 
       {/* Call to Actions */}
-      <div className="flex flex-col gap-8 md:flex-row">
-        <Button asChild className="rounded-full md:w-[10rem]" size="lg">
+      <div className="flex gap-2 md:gap-8">
+        <Button asChild className="w-1/2 rounded-full md:w-[10rem]" size="lg">
           <Link href="/contact" className="text-lg">
             See Our Work
           </Link>
         </Button>
 
-        <Button className="rounded-full md:w-[10rem]" asChild size="lg" variant="outline">
+        <Button className="w-1/2 rounded-full md:w-[10rem]" asChild size="lg" variant="outline">
           <Link href="/contact" className="text-lg">
             Lets Chat
           </Link>
