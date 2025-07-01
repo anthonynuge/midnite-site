@@ -10,12 +10,12 @@ export default function ProjectSection() {
           We Don&apos;t Just Work With You. <br className="hidden xl:block" />
           We Build With You.
         </h2>
-        <p className="text-muted-foreground">
+        <p className="text-slate-100">
           We are not your typical agency. We won’t bore your audience, over-polish your message, or
           pretend we invented branding. We just know how to tell damn good stories that people
           remember and buy from.
         </p>
-        <p className="text-muted-foreground">Check out what we have built for our clients</p>
+        <p className="text-slate-100">Check out what we have built for our clients</p>
       </div>
 
       {/* Carousel */}

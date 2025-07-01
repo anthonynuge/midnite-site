@@ -100,12 +100,12 @@ const Footer = () => {
                     <input
                       type="email"
                       name="newsletter_email"
-                      className="col-span-5 border-none bg-transparent px-6 py-3"
+                      className="col-span-5 border-none bg-transparent px-6 py-3 text-slate-100 placeholder:text-slate-100"
                       placeholder="Your Email * "
                     />{' '}
                     <button
                       type="submit"
-                      className="hover:bg-primaryColor cols-span-1 bg-accent h-full w-full cursor-pointer text-white"
+                      className="hover:bg-primaryColor cols-span-1 h-full w-full cursor-pointer bg-slate-300 text-white"
                     >
                       <svg
                         width="15"
@@ -187,7 +187,7 @@ const Footer = () => {
               {logoString.split('').map((letter, index) => (
                 <motion.span
                   key={index}
-                  className="text-muted font-serif text-9xl font-extrabold"
+                  className="font-serif text-9xl font-extrabold text-slate-100"
                   variants={variants}
                   custom={index}
                 >

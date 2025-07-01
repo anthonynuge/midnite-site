@@ -10,7 +10,7 @@ export default function IntroSection() {
           <br className="hidden xl:block" />
           Your Brand Success
         </h2>
-        <p className="text-muted-foreground">
+        <p className="text-slate-100">
           We are a results-driven marketing agency dedicated to helping brands unlock their full
           potential and achieve sustainable revenue growth. We specialize in crafting tailored
           strategies that amplify your brand&apos;s presence, engage your target audience, and

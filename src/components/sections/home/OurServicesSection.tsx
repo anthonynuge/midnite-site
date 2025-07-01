@@ -138,7 +138,7 @@ export default function OurServicesSection() {
                 />
               </div>
               <h4 className="text-lg font-medium md:text-4xl">{service.title}</h4>
-              <p className="text-muted-foreground max-w-full xl:max-w-3/4">{service.description}</p>
+              <p className="max-w-full text-slate-100 xl:max-w-3/4">{service.description}</p>
             </div>
           ))}
         </div>

@@ -9,7 +9,7 @@ export default function HeroSection() {
         <br />
         AGENCY
       </h1>
-      <h2 className="max-w-md text-center text-3xl font-bold">
+      <h2 className="max-w-md text-center text-base font-bold md:text-3xl">
         Where Business Come to Grow. <br /> No one can miss you now.
       </h2>
 
