@@ -134,7 +134,9 @@ export default function Navbar() {
 
           {/* Center Logo */}
           <div>
-            <Image src="/LogoWhite.png" alt="Logo" width={45} height={45} />
+            <Link href="/">
+              <Image src="/LogoWhite.png" alt="Logo" width={45} height={45} />
+            </Link>
           </div>
 
           {/* Right Navigation */}
