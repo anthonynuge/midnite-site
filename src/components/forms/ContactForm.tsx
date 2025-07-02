@@ -34,9 +34,7 @@ export default function ContactForm() {
       const fieldErrors = results.error.flatten().fieldErrors as Partial<
         Record<keyof ContactSchema, string>
       >
-
       setErrors(fieldErrors)
-
       console.log(errors)
       return
     }
@@ -46,27 +44,30 @@ export default function ContactForm() {
 
   return (
     <form className="flex w-full flex-col space-y-6" onSubmit={handleSubmit}>
-      <LabelInput
-        type="text"
-        name="firstName"
-        label="First Name"
-        placeholder="John Doe"
-        value={formData.firstName}
-        onChange={handleChange}
-        error={errors.firstName}
-        className="h-12 rounded-lg"
-      />
+      <h2 className="text-2xl font-bold">Lets chat</h2>
+      <div className="flex flex-col gap-2 md:flex-row md:gap-4">
+        <LabelInput
+          type="text"
+          name="firstName"
+          label="First Name"
+          placeholder="John Doe"
+          value={formData.firstName}
+          onChange={handleChange}
+          error={errors.firstName}
+          className="h-12 rounded-lg"
+        />
 
-      <LabelInput
-        type="text"
-        name="lastName"
-        label="Last Name"
-        placeholder="Doe"
-        value={formData.lastName}
-        onChange={handleChange}
-        error={errors.lastName}
-        className="h-12 rounded-lg"
-      />
+        <LabelInput
+          type="text"
+          name="lastName"
+          label="Last Name"
+          placeholder="Doe"
+          value={formData.lastName}
+          onChange={handleChange}
+          error={errors.lastName}
+          className="h-12 rounded-lg"
+        />
+      </div>
 
       <LabelInput
         type="text"
