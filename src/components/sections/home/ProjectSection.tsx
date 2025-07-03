@@ -1,6 +1,6 @@
 // 'use client'
 
-import ImageAccordion from './ImageAccordion'
+import HoverAccordion from './HoverAccordion'
 
 export default function ProjectSection() {
   return (
@@ -18,9 +18,8 @@ export default function ProjectSection() {
         <p className="text-slate-100">Check out what we have built for our clients</p>
       </div>
 
-      {/* Carousel */}
       <div>
-        <ImageAccordion />
+        <HoverAccordion />
       </div>
     </div>
   )
