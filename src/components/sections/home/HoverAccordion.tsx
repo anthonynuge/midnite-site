@@ -32,8 +32,8 @@ export const articleContainer = {
 
 type item = {
   id: string
+  name: string
   image: string
-  title: string
   description: string
   tags?: string[]
 }
@@ -68,7 +68,7 @@ function Gallery({ items, setIndex, index }: GaleryProps) {
               className={`${
                 index === i ? 'cursor-default' : 'cursor-pointer'
               } h-full w-full rounded-xl object-cover`}
-              alt={item?.title}
+              alt={item?.name}
               width={500}
               height={500}
             />
@@ -81,7 +81,7 @@ function Gallery({ items, setIndex, index }: GaleryProps) {
                   className="absolute inset-0 flex h-full w-full flex-col justify-end space-y-2 overflow-hidden rounded-xl bg-gradient-to-t from-gray-900/60 from-20% to-transparent to-80% p-4"
                 >
                   <motion.h1 variants={article} className="text-lg font-semibold md:text-2xl">
-                    {item?.title}
+                    {item?.name}
                   </motion.h1>
                   <motion.p variants={article} className="text-sm leading-[120%] sm:text-base">
                     {item?.description}

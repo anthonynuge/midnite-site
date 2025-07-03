@@ -1,62 +1,46 @@
 interface Project {
   id: string
   image: string
-  title: string
+  name: string
   description: string
   tags?: string[]
 }
 
 export const PROJECTS: Project[] = [
   {
-    id: 'unsplash-1',
+    id: 'taco1',
     image: '/projects/Taco1.jpg',
-    title: 'Creative Strategy',
-    description:
-      'We develop strategies that align your brand with your audience and business goals.',
-    tags: ['Creative Strategy', 'Brand Strategy', 'Marketing Strategy'],
+    name: 'Taco 1',
+    description: 'Brand strategy and creative direction for a modern taqueria.',
+    tags: ['Creative Strategy', 'Branding', 'Visual Identity'],
   },
   {
-    id: 'unsplash-2',
+    id: 'pinkswan1',
     image: '/projects/PinkSwan1.jpg',
-    title: 'Content Production',
-    description:
-      'High-quality photo and video content designed to tell your story across platforms.',
-    tags: ['Content Production', 'Video Production', 'Photo Production'],
+    name: 'Pink Swan Jewelry',
+    description: 'Product and lifestyle content for social and e-commerce.',
+    tags: ['Content Production', 'Photography', 'Visual Content'],
   },
   {
-    id: 'unsplash-3',
+    id: 'baeicecream1',
     image: '/projects/BaeIceCream1.jpg',
-    title: 'Social Media Management',
-    description: 'We grow your online presence through strategy and content.',
-    tags: ['Social Media Management', 'Social Media Strategy', 'Social Media Content'],
+    name: 'Bae Ice Cream',
+    description: 'Social content and campaigns to boost engagement.',
+    tags: ['Social Media', 'Content Creation', 'Campaigns'],
   },
   {
-    id: 'unsplash-4',
+    id: 'eastside1',
     image: '/projects/EastSide1.jpg',
-    title: 'Paid Advertising',
-    description: 'Data-driven campaigns that convert and scale.',
-    tags: ['Paid Advertising', 'Advertising Strategy', 'Advertising Content'],
+    name: 'East Side Social',
+    description: 'Paid ads to drive traffic and local event awareness.',
+    tags: ['Paid Ads', 'Ad Strategy', 'Geo-targeting'],
   },
   {
-    id: 'unsplash-5',
+    id: 'returnsender1',
     image: '/projects/ReturnSender1.jpg',
-    title: 'Email & SMS Marketing',
-    description: 'Build customer loyalty and retention with automated flows.',
-    tags: ['Email Marketing', 'SMS Marketing', 'Automated Flows'],
-  },
-  {
-    id: 'unsplash-6',
-    image: '/projects/PostLNY2025-26.jpg',
-    title: 'SEO & Web Optimization',
-    description: 'Improve ranking, site speed, and conversion performance.',
-    tags: ['SEO', 'Web Optimization', 'Conversion Rate Optimization'],
-  },
-  {
-    id: 'unsplash-7',
-    image: '/projects/Taco1.jpg',
-    title: 'Brand Identity',
-    description: 'Logo, typography, and visual systems that make you stand out.',
-    tags: ['Brand Identity', 'Logo Design', 'Typography', 'Visual Systems'],
+    name: 'Return to Sender',
+    description: 'Email and SMS flows to boost retention and sales.',
+    tags: ['Email Marketing', 'SMS Campaigns', 'Automation'],
   },
 ]
 
