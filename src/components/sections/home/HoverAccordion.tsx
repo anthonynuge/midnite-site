@@ -32,7 +32,7 @@ export const articleContainer = {
 
 type item = {
   id: string
-  url: string
+  image: string
   title: string
   description: string
   tags?: string[]
@@ -64,7 +64,7 @@ function Gallery({ items, setIndex, index }: GaleryProps) {
             }}
           >
             <MotionImage
-              src={item?.url}
+              src={item?.image}
               className={`${
                 index === i ? 'cursor-default' : 'cursor-pointer'
               } h-full w-full rounded-xl object-cover`}
