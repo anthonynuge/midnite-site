@@ -44,7 +44,7 @@ interface GaleryProps {
   index: number | undefined
 }
 
-const MotionImage = motion(Image)
+const MotionImage = motion.create(Image)
 
 function Gallery({ items, setIndex, index }: GaleryProps) {
   return (
