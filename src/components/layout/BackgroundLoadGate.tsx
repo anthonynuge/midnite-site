@@ -8,7 +8,6 @@ import Footer from './Footer'
 import Image from 'next/image'
 import { RevealContext } from '../context/RevealContext'
 import { useCameraZoom } from '../context/CameraZoomContext'
-import PageTransitionWrapper from '../animations/PageTransitionWrapper'
 
 export default function BackgroundLoadGate({ children }: { children: React.ReactNode }) {
   const [backgroundLoaded, setBackgroundLoaded] = useState(false)
@@ -56,7 +55,8 @@ export default function BackgroundLoadGate({ children }: { children: React.React
           className={`flex flex-col items-center justify-center ${showContent ? 'opacity-100' : 'opacity-0'} transition-opacity duration-1000`}
         >
           <Navbar />
-          <PageTransitionWrapper>{children}</PageTransitionWrapper>
+          {/* <PageTransitionWrapper>{children}</PageTransitionWrapper> */}
+          {children}
           <Footer />
         </div>
       </RevealContext.Provider>
