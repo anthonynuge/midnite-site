@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { servicesData } from './constants'
+import { AnimatePresence, motion } from 'motion/react'
 
 export default function OurServicesSection() {
   const [activeImageIndex, setActiveImageIndex] = useState(0)
@@ -47,14 +48,24 @@ export default function OurServicesSection() {
           <div className="flex flex-col gap-2">
             <h2 className="text-2xl font-bold tracking-tight md:text-4xl">Our Services</h2>
             <p>Full-service marketing built to grow your brand</p>
-            <figure className="rounded-md">
-              <Image
-                src={servicesData[activeImageIndex].image}
-                alt={servicesData[activeImageIndex].title}
-                className="hidden h-140 w-140 rounded-md object-cover align-bottom transition-all duration-300 md:block"
-                width={1000}
-                height={1000}
-              />
+            <figure className="relative hidden md:block md:h-80 md:w-80 lg:h-100 lg:w-100 xl:h-140 xl:w-140">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={servicesData[activeImageIndex].image}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.5, ease: 'easeOut' }}
+                  className="absolute inset-0"
+                >
+                  <Image
+                    src={servicesData[activeImageIndex].image}
+                    alt={servicesData[activeImageIndex].title}
+                    className="h-full w-full rounded-md object-cover"
+                    fill
+                  />
+                </motion.div>
+              </AnimatePresence>
             </figure>
           </div>
         </div>
