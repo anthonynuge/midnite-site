@@ -76,7 +76,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 right-0 left-0 z-50 mt-4">
+      <header className="fixed top-0 right-0 left-0 z-50 mt-4 px-1">
         <div
           className={`mx-auto flex h-16 w-full max-w-screen-2xl items-center justify-between rounded-full px-4 transition-all duration-500 ease-in-out ${
             isScrolled
@@ -164,7 +164,7 @@ export default function Navbar() {
 
       {/* Overlay */}
       <div
-        className={`bg-background/99 fixed top-0 left-0 z-30 h-screen w-full transition-all duration-300 ease-in-out md:hidden ${
+        className={`bg-background/99 fixed top-0 bottom-0 left-0 z-30 h-full w-full transition-all duration-300 ease-in-out md:hidden ${
           isOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
         }`}
       >

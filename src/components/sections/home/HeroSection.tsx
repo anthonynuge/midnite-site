@@ -1,13 +1,17 @@
+'use client'
+import AnimatedLetters from '@/components/animations/AnimatedLetters'
+import { useReveal } from '@/components/context/RevealContext'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 
 export default function HeroSection() {
+  const showContent = useReveal()
   return (
     <div className="mx-auto flex h-full flex-col items-center justify-center space-y-4">
-      <h1 className="text-center font-serif text-6xl font-bold md:text-9xl">
-        MIDNITE
+      <h1 className="text-center font-serif text-5xl font-bold sm:text-6xl md:text-9xl">
+        <AnimatedLetters text="MIDNITE" animate={showContent} />
         <br />
-        AGENCY
+        <AnimatedLetters text="AGENCY" animate={showContent} />
       </h1>
       <h2 className="max-w-md text-center text-base font-bold md:text-2xl">
         Where Business Come to Grow. <br /> No one can miss you now.
