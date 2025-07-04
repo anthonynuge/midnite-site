@@ -19,13 +19,8 @@ export default function IntroSection() {
         </p>
       </div>
 
-      <div className="relative h-[500px] w-full">
-        <Image
-          src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=800&q=80"
-          alt="Intro section"
-          fill
-          className="object-cover"
-        />
+      <div className="relative h-[500px] w-full rounded-lg">
+        <Image src="/Intro.jpg" alt="Intro section" fill className="rounded-lg object-cover" />
       </div>
     </div>
   )
