@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import '@/styles/globals.css'
+// import BackgroundLoadGate from '@/components/layout/BackgroundLoadGate'
+import { CameraZoomProvider } from '@/components/context/CameraZoomContext'
+import BackgroundProvider from '@/components/layout/BackgroundProvider'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
-import MeshGradientBackground from '@/components/ui/MeshGradientBackground'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -28,14 +30,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} relative flex w-full max-w-screen flex-col items-center justify-center antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} relative max-w-screen antialiased`}
       >
-        <div className="fixed inset-0 -z-50 flex h-screen w-screen items-center justify-center overflow-hidden">
-          <MeshGradientBackground />
-        </div>
-        <Navbar />
-        {children}
-        <Footer />
+        <CameraZoomProvider>
+          <BackgroundProvider>
+            {/* <div className="relative z-10 flex min-h-screen flex-col"> */}
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+            {/* </div> */}
+          </BackgroundProvider>
+        </CameraZoomProvider>
+        {/* <CameraZoomProvider>
+          <BackgroundLoadGate>{children}</BackgroundLoadGate>
+        </CameraZoomProvider> */}
       </body>
     </html>
   )
