@@ -1,3 +1,4 @@
+import FadeInSection from '@/components/animations/FadeInSection'
 import ResponsiveWrapper from '@/components/layout/ResponsiveWrapper'
 import HeroSection from '@/components/sections/home/HeroSection'
 import IntroSection from '@/components/sections/home/IntroSection'
@@ -7,7 +8,7 @@ import ProjectSection from '@/components/sections/home/ProjectSection'
 export default function HomePage() {
   return (
     <>
-      <main className="flex w-full max-w-screen-2xl flex-col">
+      <div className="flex w-full max-w-screen-2xl flex-col">
         {/* Hero */}
         <section>
           <ResponsiveWrapper className="flex items-center justify-center" fullHeight>
@@ -16,18 +17,18 @@ export default function HomePage() {
         </section>
 
         {/* Intro */}
-        <section>
-          <ResponsiveWrapper className="flex items-center justify-center" fullHeight>
+        <ResponsiveWrapper className="flex items-center justify-center" fullHeight>
+          <FadeInSection>
             <IntroSection />
-          </ResponsiveWrapper>
-        </section>
+          </FadeInSection>
+        </ResponsiveWrapper>
 
         {/* Projects */}
-        <section>
-          <ResponsiveWrapper className="flex items-center justify-center" fullHeight>
+        <ResponsiveWrapper className="flex items-center justify-center" fullHeight>
+          <FadeInSection>
             <ProjectSection />
-          </ResponsiveWrapper>
-        </section>
+          </FadeInSection>
+        </ResponsiveWrapper>
 
         {/* Our Services */}
         <section>
@@ -35,7 +36,7 @@ export default function HomePage() {
             <OurServicesSection />
           </ResponsiveWrapper>
         </section>
-      </main>
+      </div>
     </>
   )
 }
