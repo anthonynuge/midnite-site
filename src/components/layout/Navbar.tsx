@@ -13,46 +13,56 @@ import { ChevronRight } from 'lucide-react'
 import Image from 'next/image'
 import HamburgerToggle from '../mobile/HamburgerToggle'
 import { useEffect, useState } from 'react'
+import {
+  LuGamepad,
+  LuImage,
+  LuSearch,
+  LuCreditCard,
+  LuShieldCheck,
+  LuCalendar,
+  LuLayers,
+  LuPrinter,
+} from 'react-icons/lu'
 
 export const servicesMenuData = [
   {
     label: 'Social Media Marketing',
-    icon: 'gamepad',
+    icon: LuGamepad,
     href: '/services/social-media-marketing',
   },
   {
     label: 'Content Production',
-    icon: 'image',
+    icon: LuImage,
     href: '/services/content-production',
   },
   {
     label: 'Search Engine Optimization (SEO)',
-    icon: 'search',
+    icon: LuSearch,
     href: '/services/seo',
   },
   {
     label: 'Paid Ads Management',
-    icon: 'credit-card',
+    icon: LuCreditCard,
     href: '/services/paid-ads',
   },
   {
     label: 'Online Reputation Management (ORM)',
-    icon: 'shield-check',
+    icon: LuShieldCheck,
     href: '/services/orm',
   },
   {
     label: 'Event Management',
-    icon: 'calendar',
+    icon: LuCalendar,
     href: '/services/event-management',
   },
   {
     label: 'Brand Architecture',
-    icon: 'layers',
+    icon: LuLayers,
     href: '/services/brand-architecture',
   },
   {
     label: 'Printing',
-    icon: 'printer',
+    icon: LuPrinter,
     href: '/services/printing',
   },
 ]
@@ -103,17 +113,15 @@ export default function Navbar() {
                   Services
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[400px] grid-cols-1 gap-2 px-4 py-2">
+                  <ul className="grid w-[400px] grid-cols-1 gap-2 p-1">
                     {servicesMenuData.map(service => (
                       <li
-                        className="hover:bg-accent flex items-center gap-4 rounded-xl p-2"
+                        className="hover:bg-accent flex items-center justify-start gap-2 rounded-md p-2 text-center transition-colors duration-300"
                         key={service.href}
                       >
-                        <span>icon</span>
+                        <service.icon className="size-6" />
                         <Link href={service.href}>{service.label}</Link>
-                        <span>
-                          <ChevronRight />
-                        </span>
+                        <ChevronRight className="size-6" />
                       </li>
                     ))}
                   </ul>
