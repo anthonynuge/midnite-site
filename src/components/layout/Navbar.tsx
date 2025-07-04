@@ -28,42 +28,42 @@ export const servicesMenuData = [
   {
     label: 'Social Media Marketing',
     icon: LuGamepad,
-    href: '/services/social-media-marketing',
+    href: '/#social-media-marketing',
   },
   {
     label: 'Content Production',
     icon: LuImage,
-    href: '/services/content-production',
+    href: '/#content-production',
   },
   {
     label: 'Search Engine Optimization (SEO)',
     icon: LuSearch,
-    href: '/services/seo',
+    href: '/#seo',
   },
   {
     label: 'Paid Ads Management',
     icon: LuCreditCard,
-    href: '/services/paid-ads',
+    href: '/#paid-ads',
   },
   {
     label: 'Online Reputation Management (ORM)',
     icon: LuShieldCheck,
-    href: '/services/orm',
+    href: '/#orm',
   },
   {
     label: 'Event Management',
     icon: LuCalendar,
-    href: '/services/event-management',
+    href: '/#event-management',
   },
   {
     label: 'Brand Architecture',
     icon: LuLayers,
-    href: '/services/brand-architecture',
+    href: '/#brand-architecture',
   },
   {
     label: 'Printing',
     icon: LuPrinter,
-    href: '/services/printing',
+    href: '/#printing',
   },
 ]
 

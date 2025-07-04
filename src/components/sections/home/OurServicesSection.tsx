@@ -74,9 +74,10 @@ export default function OurServicesSection() {
         <div className="grid snap-y snap-mandatory space-y-24 md:space-y-0">
           {servicesData.map((service, index) => (
             <div
-              key={index}
+              key={service.id}
               className="top-0 grid h-auto snap-center place-content-center space-y-2 px-4 md:h-screen"
               data-index={index}
+              id={service.id}
               ref={el => {
                 sectionRefs.current[index] = el
               }}
