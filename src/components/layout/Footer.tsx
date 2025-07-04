@@ -1,5 +1,5 @@
 'use client'
-import React, { FormEvent, useRef, useState } from 'react'
+import React, { FormEvent, useRef } from 'react'
 import { motion, useInView, Variants } from 'motion/react'
 
 // import useNewsLetter, { ClientData } from '@/lab/hooks/useNewsLetter'
@@ -33,7 +33,7 @@ const Footer = () => {
     e.preventDefault()
     console.log(e)
     e.preventDefault()
-    const target = e.target as HTMLFormElement
+    // const target = e.target as HTMLFormElement
     // const formData = new FormData(target)
 
     // const clientEmail = formData.get('newsletter_email')!
@@ -43,13 +43,13 @@ const Footer = () => {
     // }
 
     // Send(data)
-    setOpenPopUp(true)
-    target.reset()
-    if (setOpenPopUp) {
-      setTimeout(() => {
-        setOpenPopUp(false)
-      }, 2000)
-    }
+    // setOpenPopUp(true)
+    // target.reset()
+    // if (setOpenPopUp) {
+    //   setTimeout(() => {
+    //     setOpenPopUp(false)
+    //   }, 2000)
+    // }
   }
 
   return (
