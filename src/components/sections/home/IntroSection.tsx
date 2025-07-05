@@ -6,8 +6,7 @@ export default function IntroSection() {
       {/* Left section */}
       <div className="flex max-w-full flex-col gap-4 md:max-w-3/4">
         <h2 className="text-2xl font-bold md:text-4xl">
-          The Creative Force Behind
-          <br className="hidden xl:block" />
+          The Creative Force Behind {''} <br className="hidden sm:block" />
           Your Brand Success
         </h2>
         <p className="text-slate-100">
