@@ -179,16 +179,24 @@ export default function Navbar() {
         <div className="flex flex-col px-4 pt-32">
           <ul className="flex flex-col space-y-4">
             <li className="text-4xl font-semibold">
-              <Link href="/about">About</Link>
+              <Link href="/about" onClick={() => setIsOpen(false)}>
+                About
+              </Link>
             </li>
             <li className="text-4xl font-semibold">
-              <Link href="/services">Services</Link>
+              <Link href="/services" onClick={() => setIsOpen(false)}>
+                Services
+              </Link>
             </li>
             <li className="text-4xl font-semibold">
-              <Link href="/our-work">Our Work</Link>
+              <Link href="/our-work" onClick={() => setIsOpen(false)}>
+                Our Work
+              </Link>
             </li>
             <li className="text-4xl font-semibold">
-              <Link href="/contact">Contact Us</Link>
+              <Link href="/contact" onClick={() => setIsOpen(false)}>
+                Contact Us
+              </Link>
             </li>
           </ul>
         </div>
