@@ -102,7 +102,7 @@ export default function ContactForm() {
         className="h-30"
       />
 
-      <Button type="submit" className="ml-auto h-12 w-[12rem]">
+      <Button type="submit" className="h-12 w-full md:ml-auto md:w-[12rem]">
         Submit
       </Button>
     </form>
