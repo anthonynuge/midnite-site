@@ -16,7 +16,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'pinkswan1',
-    image: '/projects/PinkSwan1.jpg',
+    image: '/projects/PinkSwan.jpg',
     name: 'Pink Swan Jewelry',
     description: 'Product and lifestyle content for social and e-commerce.',
     tags: ['Content Production', 'Photography', 'Visual Content'],
@@ -57,7 +57,7 @@ export const servicesData: Service[] = [
     title: 'Social Media Management',
     description:
       'We craft and execute tailored social media strategies that grow your online presence, drive engagement, and build community across all major platforms. From posting schedules to daily interactions, we handle it all so you don’t have to.',
-    image: '/services/SocialMedia.jpg',
+    image: '/services/Social.jpg',
   },
   {
     id: 'content-production',
