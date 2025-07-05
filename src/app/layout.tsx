@@ -20,6 +20,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'Midnite Marketing Agency',
   description: 'Marketing that never sleeps',
+  icons: {
+    icon: '/favicon.svg',
+  },
 }
 
 export default function RootLayout({
