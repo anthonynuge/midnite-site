@@ -54,31 +54,6 @@ const Footer = () => {
 
   return (
     <>
-      {/* <Toast.Provider>
-        <Toast.Provider swipeDirection="right">
-          <Toast.Root
-            className="ToastRoot"
-            open={openPopup}
-            onOpenChange={setOpenPopUp}
-          >
-            <Toast.Title className="ToastTitle">
-              We Received Your Message, Thanks
-            </Toast.Title>
-            <Toast.Action
-              className="ToastAction"
-              asChild
-              altText="Goto schedule to undo"
-            >
-              <button className="bg-white text-black px-3 py-1 rounded-lg">
-                ok
-              </button>
-            </Toast.Action>
-          </Toast.Root>
-          <Toast.Viewport className="ToastViewport" />
-        </Toast.Provider>
-        <Toast.Viewport />
-      </Toast.Provider> */}
-
       <div className="relative h-full w-full pt-8 sm:pt-14" ref={container}>
         <div className="mx-auto px-4 sm:container">
           <div className="w-full justify-between md:flex">
@@ -187,7 +162,7 @@ const Footer = () => {
               {logoString.split('').map((letter, index) => (
                 <motion.span
                   key={index}
-                  className="font-serif text-9xl font-extrabold text-slate-100"
+                  className="font-serif text-6xl font-extrabold text-slate-100 sm:text-9xl"
                   variants={variants}
                   custom={index}
                 >
