@@ -6,6 +6,8 @@ import { CameraZoomProvider } from '@/components/context/CameraZoomContext'
 import BackgroundProvider from '@/components/layout/BackgroundProvider'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -35,6 +37,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} relative max-w-screen antialiased`}
       >
+        <ToastContainer
+          position="bottom-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
         <CameraZoomProvider>
           <BackgroundProvider>
             {/* <div className="relative z-10 flex min-h-screen flex-col"> */}

@@ -6,6 +6,7 @@ import { Button } from '../ui/button'
 import LabelTextarea from './LabelTextArea'
 import { ContactSchema, contactSchema } from '@/schemas/contactSchema'
 import { Loader2 } from 'lucide-react'
+import { toast } from 'react-toastify'
 
 const defaultFormData = {
   firstName: '',
@@ -54,15 +55,18 @@ export default function ContactForm() {
 
       const data = await res.json()
 
-      if (res.ok && data.success) {
-        setFormData(defaultFormData)
-        setErrors({})
-        console.log(data.message)
-      } else {
-        console.log('Failed')
+      if (!data.success) {
+        // Logical application error (e.g. invalid input)
+        throw new Error(data.message || 'Something went wrong.')
       }
-    } catch (error) {
-      console.error(error)
+
+      setFormData(defaultFormData)
+      setErrors({})
+      toast.success(data.message || 'Email sent successfully')
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        toast.error(error.message || 'Something went wrong.')
+      }
     } finally {
       setIsLoading(false)
     }
@@ -99,7 +103,7 @@ export default function ContactForm() {
         type="text"
         name="business"
         label="Business"
-        placeholder=""
+        placeholder="Your business name"
         value={formData.business}
         onChange={handleChange}
         error={errors.business}
