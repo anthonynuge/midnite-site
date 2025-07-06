@@ -5,15 +5,19 @@ import LabelInput from './LabelInput'
 import { Button } from '../ui/button'
 import LabelTextarea from './LabelTextArea'
 import { ContactSchema, contactSchema } from '@/schemas/contactSchema'
+import { Loader2 } from 'lucide-react'
+
+const defaultFormData = {
+  firstName: '',
+  lastName: '',
+  business: '',
+  email: '',
+  message: '',
+}
 
 export default function ContactForm() {
-  const [formData, setFormData] = useState<ContactSchema>({
-    firstName: '',
-    lastName: '',
-    business: '',
-    email: '',
-    message: '',
-  })
+  const [isLoading, setIsLoading] = useState(false)
+  const [formData, setFormData] = useState<ContactSchema>(defaultFormData)
 
   // Use the keys of Contact schema as optional keys
   const [errors, setErrors] = useState<Partial<Record<keyof ContactSchema, string>>>({})
@@ -25,9 +29,9 @@ export default function ContactForm() {
     setErrors(prev => ({ ...prev, [name]: '' }))
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-
+    setIsLoading(true)
     const results = contactSchema.safeParse(formData)
 
     if (!results.success) {
@@ -35,16 +39,38 @@ export default function ContactForm() {
         Record<keyof ContactSchema, string>
       >
       setErrors(fieldErrors)
-      console.log(errors)
+      setIsLoading(false)
       return
     }
 
-    console.log(formData)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await res.json()
+
+      if (res.ok && data.success) {
+        setFormData(defaultFormData)
+        setErrors({})
+        console.log(data.message)
+      } else {
+        console.log('Failed')
+      }
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
     <form className="flex w-full flex-col space-y-6" onSubmit={handleSubmit}>
-      <h2 className="text-2xl font-bold">Lets chat</h2>
+      <h2 className="text-2xl font-bold">Let&apos;s chat</h2>
       <div className="flex flex-col gap-2 md:flex-row md:gap-4">
         <LabelInput
           type="text"
@@ -102,8 +128,8 @@ export default function ContactForm() {
         className="h-30"
       />
 
-      <Button type="submit" className="h-12 w-full md:ml-auto md:w-[12rem]">
-        Submit
+      <Button type="submit" className="h-12 w-full md:ml-auto md:w-[12rem]" disabled={isLoading}>
+        {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Submit'}
       </Button>
     </form>
   )
