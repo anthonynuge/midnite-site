@@ -1,16 +1,17 @@
 'use client'
-import React, { FormEvent, useRef } from 'react'
+import React, { FormEvent, useRef, useState } from 'react'
 import { motion, useInView, Variants } from 'motion/react'
 
-// import useNewsLetter, { ClientData } from '@/lab/hooks/useNewsLetter'
 import Link from 'next/link'
+import { toast } from 'react-toastify'
 
 const Footer = () => {
   const container = useRef<HTMLDivElement>(null)
-  // const [Send, cilentData] = useNewsLetter()
-  // const [openPopup, setOpenPopUp] = useState(false)
   const ref = useRef(null)
   const isInView = useInView(ref)
+  const [isLoading, setIsLoading] = useState(false)
+  const [email, setEmail] = useState('')
+  const [subscribed, setSubscribed] = useState(false)
 
   const logoString = 'MIDNITE-MIDNITE-MIDNITE'
 
@@ -29,27 +30,35 @@ const Footer = () => {
     hidden: { translateY: 200 },
   }
 
-  const handleNewsLetterData = (e: FormEvent) => {
+  const handleNewsLetterData = async (e: FormEvent) => {
     e.preventDefault()
-    console.log(e)
-    e.preventDefault()
-    // const target = e.target as HTMLFormElement
-    // const formData = new FormData(target)
+    setIsLoading(true)
 
-    // const clientEmail = formData.get('newsletter_email')!
+    try {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      })
 
-    // const data: ClientData = {
-    //   email: clientEmail.toString(),
-    // }
+      const data = await res.json()
 
-    // Send(data)
-    // setOpenPopUp(true)
-    // target.reset()
-    // if (setOpenPopUp) {
-    //   setTimeout(() => {
-    //     setOpenPopUp(false)
-    //   }, 2000)
-    // }
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || 'Failed to subscribe to newsletter')
+      }
+
+      toast.success(data.message || 'Subscribed to newsletter')
+      setEmail('')
+      setSubscribed(true)
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        toast.error(error.message || 'Failed to subscribe to newsletter')
+      }
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -77,9 +86,12 @@ const Footer = () => {
                       name="newsletter_email"
                       className="col-span-5 border-none bg-transparent px-6 py-3 text-slate-100 placeholder:text-slate-100"
                       placeholder="Your Email * "
+                      value={email}
+                      onChange={e => setEmail(e.target.value)}
                     />{' '}
                     <button
                       type="submit"
+                      disabled={isLoading || subscribed}
                       className="hover:bg-primaryColor cols-span-1 h-full w-full cursor-pointer bg-slate-300 text-white"
                     >
                       <svg
@@ -121,13 +133,17 @@ const Footer = () => {
                   <Link href="/projects">Projects</Link>
                 </li>
                 <li className="text-xl font-medium">
-                  <Link href="/contact-us">Contact</Link>
+                  <Link href="/contact">Contact</Link>
                 </li>
               </ul>
               <ul>
                 <li className="pb-2 text-2xl font-semibold">SOCIAL</li>
                 <li className="text-xl font-medium">
-                  <a href="" target="_blank" className="underline">
+                  <a
+                    href="https://www.linkedin.com/company/midnite-agency/"
+                    target="_blank"
+                    className="underline"
+                  >
                     LinkedIn
                   </a>
                 </li>
@@ -137,12 +153,20 @@ const Footer = () => {
                   </a>
                 </li>
                 <li className="text-xl font-medium">
-                  <a href="" target="_blank" className="underline">
+                  <a
+                    href="https://www.instagram.com/midnite_agency/"
+                    target="_blank"
+                    className="underline"
+                  >
                     Instagram
                   </a>
                 </li>
                 <li className="text-xl font-medium">
-                  <a href="" target="_blank" className="underline">
+                  <a
+                    href="https://www.facebook.com/people/Midnite-Agency/61557421103969/?_rdr"
+                    target="_blank"
+                    className="underline"
+                  >
                     Facebook
                   </a>
                 </li>
