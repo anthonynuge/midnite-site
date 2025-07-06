@@ -8,10 +8,14 @@ interface LabelInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 const LabelInput = ({ label, error, className, ...props }: LabelInputProps) => {
   return (
-    <div className="grid w-full items-center gap-2">
+    <div className="relative grid w-full items-center gap-2">
       <Label htmlFor={props.name}>{label}</Label>
-      <Input id={props.name} className={className} {...props} />
-      {error && <span className="text-destructive text-xs">{error}</span>}
+      <Input
+        id={props.name}
+        className={`${error ? 'border-destructive' : ''} ${className}`}
+        {...props}
+      />
+      {error && <span className="text-destructive absolute -bottom-4 text-xs">{error}</span>}
     </div>
   )
 }

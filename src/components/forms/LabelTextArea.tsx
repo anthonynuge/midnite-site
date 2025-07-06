@@ -10,10 +10,15 @@ const LabelTextarea = ({ label, error, className, id, name, ...props }: LabelTex
   const generatedId = id || name || label.toLowerCase().replace(/\s+/g, '-')
 
   return (
-    <div className="grid w-full items-start gap-2">
+    <div className="relative grid w-full items-start gap-2">
       <Label htmlFor={generatedId}>{label}</Label>
-      <Textarea id={generatedId} name={name} className={className} {...props} />
-      {error && <span className="text-destructive text-xs">{error}</span>}
+      <Textarea
+        id={generatedId}
+        name={name}
+        className={`${error ? 'border-destructive' : ''} ${className}`}
+        {...props}
+      />
+      {error && <span className="text-destructive absolute -bottom-4 text-xs">{error}</span>}
     </div>
   )
 }
