@@ -8,38 +8,39 @@ interface Project {
 
 export const PROJECTS: Project[] = [
   {
-    id: 'taco1',
-    image: '/projects/Taco1.jpg',
-    name: 'Taco 1',
-    description: 'Brand strategy and creative direction for a modern taqueria.',
+    id: 'GoodBurger1',
+    image: '/projects/GoodBurger1.jpg',
+    name: 'Johnny Good Burger',
+    description:
+      'Produced engaging content for social media and high-impact promotional campaigns.',
     tags: ['Creative Strategy', 'Branding', 'Visual Identity'],
   },
   {
     id: 'pinkswan1',
     image: '/projects/PinkSwan.jpg',
-    name: 'Pink Swan Jewelry',
-    description: 'Product and lifestyle content for social and e-commerce.',
+    name: 'The Pink Swan Shop',
+    description: 'Led SEO strategy and expanded e-commerce presence for scalable growth.',
     tags: ['Content Production', 'Photography', 'Visual Content'],
   },
   {
     id: 'baeicecream1',
     image: '/projects/BaeIceCream1.jpg',
-    name: 'Bae Ice Cream',
-    description: 'Social content and campaigns to boost engagement.',
+    name: 'Bae Icecream & Co.',
+    description: 'Drove social growth and engagement through strategic content production.',
     tags: ['Social Media', 'Content Creation', 'Campaigns'],
   },
   {
-    id: 'eastside1',
-    image: '/projects/EastSide1.jpg',
-    name: 'East Side Social',
-    description: 'Paid ads to drive traffic and local event awareness.',
+    id: 'PrestigeDental',
+    image: '/projects/Prestige.jpg',
+    name: 'Prestige Dental Humble',
+    description: 'Managed targeted paid ad campaigns to drive new patient acquisition.',
     tags: ['Paid Ads', 'Ad Strategy', 'Geo-targeting'],
   },
   {
     id: 'returnsender1',
     image: '/projects/ReturnSender1.jpg',
     name: 'Return to Sender',
-    description: 'Email and SMS flows to boost retention and sales.',
+    description: 'Handled social media management, content creation, and brand-driven promotions.',
     tags: ['Email Marketing', 'SMS Campaigns', 'Automation'],
   },
 ]
