@@ -22,6 +22,7 @@ import {
   LuCalendar,
   LuLayers,
   LuPrinter,
+  LuGlobe,
 } from 'react-icons/lu'
 
 export const servicesMenuData = [
@@ -59,6 +60,11 @@ export const servicesMenuData = [
     label: 'Brand Architecture',
     icon: LuLayers,
     href: '/#brand-architecture',
+  },
+  {
+    label: 'Website Design & Build',
+    icon: LuGlobe,
+    href: '/#website',
   },
   {
     label: 'Printing',

@@ -89,7 +89,7 @@ export const servicesData: Service[] = [
     image: '/services/Reputation.png',
   },
   {
-    id: 'website-design',
+    id: 'website',
     title: 'Website Design & Development',
     description:
       "We design and build websites that are as functional as they are beautiful. Whether you're starting from scratch or refreshing your current site, we create fast, responsive, and user-friendly digital experiences tailored to your brand. From structure and design to performance and SEO, we ensure your website not only looks great — it works hard for your business.",
