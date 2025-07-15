@@ -186,7 +186,7 @@ const Footer = () => {
               {logoString.split('').map((letter, index) => (
                 <motion.span
                   key={index}
-                  className="font-serif text-6xl font-extrabold text-slate-100 sm:text-9xl"
+                  className="text-6xl leading-none font-bold text-slate-100 will-change-transform sm:text-9xl"
                   variants={variants}
                   custom={index}
                 >

@@ -119,9 +119,11 @@ export default function Navbar() {
                         className="hover:bg-accent flex items-center justify-start gap-2 rounded-md p-2 text-center transition-colors duration-300"
                         key={service.href}
                       >
-                        <service.icon className="size-6" />
-                        <Link href={service.href}>{service.label}</Link>
-                        <ChevronRight className="size-6" />
+                        <service.icon className="size-5" />
+                        <Link href={service.href} className="text-sm">
+                          {service.label}
+                        </Link>
+                        <ChevronRight className="size-5" />
                       </li>
                     ))}
                   </ul>

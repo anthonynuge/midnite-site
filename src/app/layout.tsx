@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Comfortaa } from 'next/font/google'
 import '@/styles/globals.css'
 // import BackgroundLoadGate from '@/components/layout/BackgroundLoadGate'
 import { CameraZoomProvider } from '@/components/context/CameraZoomContext'
@@ -9,14 +9,10 @@ import Footer from '@/components/layout/Footer'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const comfortaa = Comfortaa({
   subsets: ['latin'],
-})
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-comfortaa',
 })
 
 export const metadata: Metadata = {
@@ -34,9 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} relative max-w-screen antialiased`}
-      >
+      <body className={`${comfortaa.variable} relative max-w-screen antialiased`}>
         <ToastContainer
           position="bottom-right"
           autoClose={3000}

@@ -8,12 +8,12 @@ export default function HeroSection() {
   const showContent = useReveal()
   return (
     <div className="mx-auto flex h-full flex-col items-center justify-center space-y-4">
-      <h1 className="text-center font-serif text-5xl font-bold sm:text-6xl md:text-9xl">
+      <h1 className="text-center text-5xl font-semibold sm:text-6xl md:text-9xl">
         <AnimatedLetters text="MIDNITE" animate={showContent} />
         <br />
         <AnimatedLetters text="AGENCY" animate={showContent} />
       </h1>
-      <h2 className="max-w-md text-center text-base font-bold md:text-2xl">
+      <h2 className="max-w-md text-center text-base md:text-2xl">
         Where Business Come to Grow. <br /> No one can miss you now.
       </h2>
 

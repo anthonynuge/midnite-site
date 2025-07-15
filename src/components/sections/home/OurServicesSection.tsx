@@ -90,7 +90,7 @@ export default function OurServicesSection() {
                   fill
                 />
               </div>
-              <h4 className="text-lg font-medium md:text-4xl">{service.title}</h4>
+              <h4 className="text-lg font-bold md:text-4xl">{service.title}</h4>
               <p className="max-w-full text-slate-100 xl:max-w-3/4">{service.description}</p>
             </div>
           ))}

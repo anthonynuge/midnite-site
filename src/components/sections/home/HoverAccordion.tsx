@@ -80,7 +80,7 @@ function Gallery({ items, setIndex, index }: GaleryProps) {
                   animate="show"
                   className="absolute inset-0 flex h-full w-full flex-col justify-end space-y-2 overflow-hidden rounded-xl bg-gradient-to-t from-gray-900/60 from-20% to-transparent to-80% p-4"
                 >
-                  <motion.h1 variants={article} className="text-lg font-semibold md:text-2xl">
+                  <motion.h1 variants={article} className="text-lg font-bold md:text-2xl">
                     {item?.name}
                   </motion.h1>
                   <motion.p variants={article} className="text-sm leading-[120%] sm:text-base">
